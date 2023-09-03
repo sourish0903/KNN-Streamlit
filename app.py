@@ -8,6 +8,7 @@ from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
+import lightgbm as lgb
 def getClassifier(classifier):
     if classifier == 'SVM':
         c = st.sidebar.slider(label='Choose value of C' , min_value=0.0001, max_value=10.0)
@@ -15,10 +16,18 @@ def getClassifier(classifier):
     elif classifier == 'KNN':
         neighbors = st.sidebar.slider(label='Choose Number of Neighbors',min_value=1,max_value=20)
         model = KNeighborsClassifier(n_neighbors = neighbors)
-    else:
+    elif classifier == 'RandomForest':
         max_depth = st.sidebar.slider('max_depth', 2, 10)
         n_estimators = st.sidebar.slider('n_estimators', 1, 100)
+        max_features = st.sidebar.selectbox('Which Dataset do you want to use?',('auto' , 'sqrt'))
+        bootstrap = st.sidebar.selectbox('sampling methog?', (True, False))
         model = RandomForestClassifier(max_depth = max_depth , n_estimators= n_estimators,random_state= 1)
+    else:
+        n_estimators = st.sidebar.slider('n_estimators', 100, 200)
+        max_depth = st.sidebar.slider('max_depth', 2, 10)
+        learning_rate = st.sidebar.slider('learning_rate', 0.01, 0.05)
+        boosting_type = st.sidebar.selectbox('Which boosting_type do you want to use?',('gbdt' , 'dart'))
+        model = lgb.LGBMClassifier((max_depth = max_depth , n_estimators= n_estimators,learning_rate=learning_rate)    
     return model
 
 
