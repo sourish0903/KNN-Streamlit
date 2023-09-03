@@ -27,7 +27,7 @@ def getClassifier(classifier):
         max_depth = st.sidebar.slider('max_depth', 2, 10)
         learning_rate = st.sidebar.slider('learning_rate', 0.01, 0.05)
         boosting_type = st.sidebar.selectbox('Which boosting_type do you want to use?',('gbdt' , 'dart'))
-        model = lgb.LGBMClassifier((max_depth = max_depth , n_estimators= n_estimators,learning_rate=learning_rate)    
+        model = lgb.LGBMClassifier(max_depth = max_depth , n_estimators= n_estimators,learning_rate=learning_rate)    
     return model
 
 
