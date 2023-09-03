@@ -59,7 +59,7 @@ st.text("Chose a Dataset and a Classifier in the sidebar. Input your values and 
 #sidebar
 sideBar = st.sidebar
 dataset = sideBar.selectbox('Which Dataset do you want to use?',('Wine' , 'Breast Cancer' , 'Iris'))
-classifier = sideBar.selectbox('Which Classifier do you want to use?',('SVM' , 'KNN' , 'Random Forest'))
+classifier = sideBar.selectbox('Which Classifier do you want to use?',('SVM' , 'KNN' , 'Random Forest','light gbm'))
 
 
 X_train, X_test, y_train, y_test, df , classes= return_data(dataset)
