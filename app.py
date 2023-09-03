@@ -16,7 +16,7 @@ def getClassifier(classifier):
     elif classifier == 'KNN':
         neighbors = st.sidebar.slider(label='Choose Number of Neighbors',min_value=1,max_value=20)
         model = KNeighborsClassifier(n_neighbors = neighbors)
-    elif classifier == 'RandomForest':
+    elif classifier == 'Random Forest':
         max_depth = st.sidebar.slider('max_depth', 2, 10)
         n_estimators = st.sidebar.slider('n_estimators', 1, 100)
         max_features = st.sidebar.selectbox('Which Dataset do you want to use?',('auto' , 'sqrt'))
@@ -59,7 +59,7 @@ st.text("Chose a Dataset and a Classifier in the sidebar. Input your values and 
 #sidebar
 sideBar = st.sidebar
 dataset = sideBar.selectbox('Which Dataset do you want to use?',('Wine' , 'Breast Cancer' , 'Iris'))
-classifier = sideBar.selectbox('Which Classifier do you want to use?',('SVM' , 'KNN' , 'Random Forest','light gbm'))
+classifier = sideBar.selectbox('Which Classifier do you want to use?',('SVM', 'KNN', 'Random Forest','Lightgbm'))
 
 
 X_train, X_test, y_train, y_test, df , classes= return_data(dataset)
