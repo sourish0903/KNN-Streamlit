@@ -76,18 +76,18 @@ plt.title("2-D PCA Visualization")
 st.pyplot(fig)
 
 #3-D PCA
-fig2 = plt.figure(figsize=(16,10)).gca()
-fig2.scatter(
-    xs=df["pca-1"],
-    ys=df["pca-2"],
-    zs=df["pca-3"],
-    c=df["Type"],
-)
-fig2.set_xlabel('pca-one')
-fig2.set_ylabel('pca-two')
-fig2.set_zlabel('pca-three')
-plt.title("3-D PCA Visualization")
-st.pyplot(fig2.get_figure())
+# fig2 = plt.figure(figsize=(16,10)).gca()
+# fig2.scatter(
+#     xs=df["pca-1"],
+#     ys=df["pca-2"],
+#     zs=df["pca-3"],
+#     c=df["Type"],
+# )
+# fig2.set_xlabel('pca-one')
+# fig2.set_ylabel('pca-two')
+# fig2.set_zlabel('pca-three')
+# plt.title("3-D PCA Visualization")
+# st.pyplot(fig2.get_figure())
 
 # Train Model
 model = getClassifier(classifier)
